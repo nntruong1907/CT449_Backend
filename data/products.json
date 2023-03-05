@@ -1,0 +1,86 @@
+[
+  {
+    "type_id": "street",
+    "name": "Kawasaki Ninja 250",
+    "type_brand": "kawasaki",
+    "price": 122698000,
+    "image": "iris-S-Class.webp",
+    "details": {
+      "weight": 164,
+      "length": 1990,
+      "width": 710,
+      "height": 1125,
+      "ground_clearance": 145,
+      "fuel_capacity": 14,
+      "color": { "inSide": "Đen", "outSide": "Xanh" },
+      "year": 2021,
+      "engine": "Parallel Twin Cylinder, 4-Stroke, Liquid Cooled Engine",
+      "power": 38.46,
+      "speed": 170,
+      "compression_ratio": "11.6:1"
+    }
+  },
+  {
+    "type_id": "sport",
+    "name": "Kawasaki Z900",
+    "type_brand": "kawasaki",
+    "price": 396825000,
+    "image": "iris-S-Class.webp",
+    "details": {
+      "weight": 210,
+      "length": 2115,
+      "width": 825,
+      "height": 1065,
+      "ground_clearance": 130,
+      "fuel_capacity": 17,
+      "color": { "inSide": "Đen", "outSide": "Xanh" },
+      "year": 2021,
+      "engine": "Liquid Cooled, 4-Stroke, 4-Cylinder",
+      "power": 123.29,
+      "speed": 195,
+      "compression_ratio": "11.8:1"
+    }
+  },
+  {
+    "type_id": "cruiser",
+    "name": "Kawasaki Vulcan S",
+    "type_brand": "kawasaki",
+    "price": 301420000,
+    "image": "iris-S-Class.webp",
+    "details": {
+      "weight": 226,
+      "length": 2310,
+      "width": 855,
+      "height": 1090,
+      "ground_clearance": 130,
+      "fuel_capacity": 14,
+      "color": { "inSide": "Đen", "outSide": "Xanh" },
+      "year": 2022,
+      "engine": "4-stroke, 2-cylinder, DOHC, liquid-cooled",
+      "power": 60.3,
+      "speed": 170,
+      "compression_ratio": "10.8:1"
+    }
+  },
+  {
+    "type_id": "touring",
+    "name": "Concours 14 ABS",
+    "type_brand": "kawasaki",
+    "price": 122698000,
+    "image": "iris-S-Class.webp",
+    "details": {
+      "weight": 164,
+      "length": 2230,
+      "width": 1000,
+      "height": 1465,
+      "ground_clearance": 125,
+      "fuel_capacity": 22,
+      "color": { "inSide": "Đen", "outSide": "Xám" },
+      "year": 2022,
+      "engine": "4-stroke, 4-cylinder, DOHC, 4-valve, liquid-cooled",
+      "power": 38.46,
+      "speed": 170,
+      "compression_ratio": "10.7:1"
+    }
+  }
+]

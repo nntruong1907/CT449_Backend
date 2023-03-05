@@ -1,0 +1,14 @@
+[
+  {
+    "name": "",
+    "phone": "",
+    "avatar": "", 
+    "address": "",
+    "email": "",
+    "account": {
+      "username": "",
+      "password": "",
+      "permission": ""
+    }
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "street",
+    "type_name": "Street"
+  },
+  {
+    "_id": "sport",
+    "type_name": "Sport"
+  },
+  {
+    "_id": "cruiser",
+    "type_name": "Cruiser"
+  },
+  {
+    "_id": "touring",
+    "type_name": "Touring"
+  }
+]
