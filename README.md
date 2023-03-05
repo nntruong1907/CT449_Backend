@@ -18,6 +18,14 @@ This is a motorcycle business e-commerce website project
 
 - A library to help you hash passwords. <a href="https://www.npmjs.com/package/bcrypt"><img src="https://img.shields.io/badge/bcrypt-v5.1.0-blue?logo=bcrypt" /></a>
 
+- Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology. <a href="https://www.npmjs.com/package/dotenv"><img src="https://img.shields.io/badge/dotenv-v16.0.3-blue?logo=dotenv" /></a>
+
+- The Cloudinary Node SDK allows you to quickly and easily integrate your application with Cloudinary. <a href="https://www.npmjs.com/package/cloudinary"><img src="https://img.shields.io/badge/cloudinary-v1.35.0-blue?logo=cloudinary" /></a>
+
+- Middleware for handling multipart/form-data, which is primarily used for uploading files. <a href="https://www.npmjs.com/package/multer"><img src="https://img.shields.io/badge/multer-v1.4.5-blue?logo=multer" /></a>
+
+- A multer storage engine for Cloudinary. <a href="https://www.npmjs.com/package/multer-storage-cloudinary"><img src="https://img.shields.io/badge/multer storagecloudinary-v4.0.0-blue?logo=multer-storage-cloudinary" /></a>
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Postman](https://www.postman.com) + [MongoDB Compass](https://www.mongodb.com/)
