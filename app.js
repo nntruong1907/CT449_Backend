@@ -3,6 +3,9 @@ const cors = require("cors");
 const ApiError = require("./app/api-error");
 
 const usersRouter= require("./app/routes/user.route");
+const productsRouter= require("./app/routes/product.route");
+
+require('dotenv').config()
 
 const app = express();
 
@@ -10,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/users', usersRouter);
+app.use('/api/products', productsRouter);
 
 //handle 404 respone
 app.use((req, res, next) => {
