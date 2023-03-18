@@ -15,6 +15,20 @@ exports.create = async (req, res, next) => {
   }
 };
 
+exports.findOne = async (req, res, next) => {
+  try {
+    const orderService = new OrderService(MongoDB.client);
+    const document = await orderService.findById(req.params.id);
+    if (!document) {
+      return next(new ApiError(404, "Contact not found"));
+    }
+    return res.send(document);
+  } catch (error) {
+    return next(
+      new ApiError(500, `Error retrieving contact with id=${req.params.id}`)
+    );
+  }
+};
 // Retrieve all orders of a order from the database
 exports.findAll = async (req, res, next) => {
   let documents = [];

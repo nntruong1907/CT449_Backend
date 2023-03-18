@@ -1,5 +1,7 @@
 const { ObjectId } = require("mongodb");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const config = require("../config");
 
 class UserService {
     constructor(client) {
@@ -12,33 +14,32 @@ class UserService {
             phone: payload.phone,
             address: payload.address,
             email: payload.email,
-            avatar: payload.avatar,
             account: {
                 username: payload.account.username,
                 password: payload.account.password,
-                permission: payload.account.permission ?? 1,
-              },
+                admin: payload.admin,
+            },
+            avatar: {
+                avatar_path: payload.path,
+                avatar_name: payload.filename
+            },
         };
 
         // Remove undefined fields
         Object.keys(user).forEach(
             (key) => user[key] === undefined && delete user[key]
         );
-        return user;
-    }
-
-    async create(payload) {
-        const user = this.extractUserData(payload);
-        // console.log(user);
-        const salt = await bcrypt.genSalt(10);
-        // now we set user password to hashed password
-        const passwordHash = await bcrypt.hash(user.account.password, salt);
-        const result = await this.User.findOneAndUpdate(
-            user,
-            { $set: { 'account.password': passwordHash} },
-            { returnDocument: "after", upsert: true }
+        Object.keys(user.account).forEach(
+            (key) => user.account[key] === undefined && delete user.account[key]
         );
-        return result.value;
+        if (Object.keys(user.account).length == 0) { delete user.account }
+
+        Object.keys(user.avatar).forEach(
+            (key) => user.avatar[key] === undefined && delete user.avatar[key]
+        );
+        if (Object.keys(user.avatar).length == 0) { delete user.avatar }
+
+        return user;
     }
 
     async find(filter) {
@@ -52,13 +53,9 @@ class UserService {
         });
     }
 
-    async findByUsername(user) {
-        return await this.User.findOne({
-            $or:[
-                {'account.username': { $regex: new RegExp(user.account.username) }},
-                {email:{ $regex: new RegExp(user.email) }},
-            ]
-                
+    async findByPhone(phone) {
+        return await this.find({
+            phone: { $regex: new RegExp(phone), $options: "i" },
         });
     }
 
@@ -92,19 +89,70 @@ class UserService {
         const result = await this.user.deleteMany({});
         return result.deletedCount;
     }
-    // Login 
-    async login(payload){
-        const user = await this.User.findOne({ "account.username": payload.username });
-        if (user) {
-          // check user password with hashed password stored in the database
-            const validPassword = await bcrypt.compare(payload.password, user.account.password);
-            if (validPassword) {
-                return {userid:user._id, name: user.name}
-            } else {
-                return false;
-            }
-        }
+
+    // Sign in
+    async register(payload) {
+        const user = this.extractUserData(payload);
+        const salt = bcrypt.genSaltSync(10);
+        const passwordHashed = bcrypt.hashSync(user.account.password, salt);
+        const avatarDefault = [
+            'https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609679/motorcycle/avt/avt6_jwdkr5.png'
+            , 'https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609679/motorcycle/avt/avt4_m60guj.png'
+            , 'https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609678/motorcycle/avt/avt5_wr6sey.png'
+            , 'https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609678/motorcycle/avt/avt3_nglwui.png'
+        ]
+        const result = await this.User.findOneAndUpdate(
+            user,
+            {
+                $set: {
+                    'account.admin': false,
+                    'account.password': passwordHashed,
+                    avatar: {
+                        avatar_path: avatarDefault[Math.floor(Math.random() * 4)],
+                    }
+                }
+            },
+            { returnDocument: "after", upsert: true }
+        );
+        return result.value;
     }
+
+    // Login 
+    async login(payload, time) {
+        return jwt.sign({
+            iss: 'Nguyen Nhat Truong',
+            id: payload._id,
+            admin: payload.account.admin
+        }, config.JWT_Secret, {  // secretOrPublicKey mã bí mặt (NodejsApiAuthentication)
+            expiresIn: time    // Ngày hết hạn Token 
+        })
+    }
+
+    async validPassword(validpassword, password) {
+        return await bcrypt.compare(
+            validpassword,
+            password
+        );
+    }
+
+    async refresh(payload, time) {
+        return jwt.sign({
+            iss: 'Nguyen Nhat Truong',
+            id: payload.id,
+            admin: payload.account.admin
+        }, config.JWT_Secret, {
+            expiresIn: time
+        })
+    }
+
+    async findUser(payload) {
+        return await this.User.findOne({ 'account.username': payload.account.username })
+    }
+
+    async findUsername(payload) {
+        return await this.User.findOne({ 'account.username': payload.username })
+    }
+
 }
 
 module.exports = UserService;

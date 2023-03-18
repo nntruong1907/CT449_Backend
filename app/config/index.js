@@ -4,7 +4,8 @@ const config = {
     },
     db: {
         uri: process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/motorcycle"
-    }
+    },
+    JWT_Secret:process.env.JWT_Secret,
 };
 
 module.exports = config;

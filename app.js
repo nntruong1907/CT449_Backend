@@ -1,19 +1,26 @@
+require('dotenv').config()
+
 const express = require("express");
 const cors = require("cors");
 const ApiError = require("./app/api-error");
+const cookieParser = require('cookie-parser');
 
-const usersRouter= require("./app/routes/user.route");
-const productsRouter= require("./app/routes/product.route");
-
-require('dotenv').config()
+const authRouter = require("./app/routes/auth.route");
+const usersRouter = require("./app/routes/user.route");
+const productsRouter = require("./app/routes/product.route");
+const ordersRouter = require("./app/routes/order.route");
+const auth = require("./app/middlewares/auth");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
-app.use('/api/users', usersRouter);
-app.use('/api/products', productsRouter);
+app.use("/api/auth", authRouter);
+app.use('/api/users', auth.verifyToken, usersRouter);
+app.use('/api/products', auth.verifyToken, productsRouter);
+app.use('/api/orders', auth.verifyToken, ordersRouter);
 
 //handle 404 respone
 app.use((req, res, next) => {

@@ -6,9 +6,9 @@ class ProductService {
   }
   extractProductData(payload) {
     const product = {
-      type_id: payload.type_id,
       name: payload.name,
-      type_brand: payload.type_brand,
+      type: payload.type,
+      brand: payload.type_brand,
       // price: parseInt(payload.price),
       price: payload.price,
       image: {

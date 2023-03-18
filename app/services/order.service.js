@@ -7,11 +7,11 @@ class OrderService {
   }
   extractOrderData(payload) {
     const order = {
-      name: payload.name,
-      email: payload.email,
-      phone: payload.phone,
-      address: payload.address,
-      motor_name: payload.motor_name,
+      _id_user: payload._id_user,
+      _id_motor: payload._id_motor,
+      quantity_motor: payload.quantity_motor,
+      phone_order: payload.phone_order,
+      address_order: payload.address_order,
       time_oder: new Date().toLocaleString("vi-VN", {
         timeZone: "Asia/Ho_Chi_Minh",
       }),
@@ -120,39 +120,6 @@ class OrderService {
       },
       { returnDocument: "after" }
     );
-    if (result.value.status == "Đã xác nhận") {
-      const nodemailer = require("nodemailer");
-      console.log(process.env.EMAIL);
-      let transporter = nodemailer.createTransport({
-        // config mail server
-        service: "Gmail",
-        auth: {
-          user: process.env.EMAIL,
-          pass: process.env.PASS,
-        },
-      });
-      let mainOptions = {
-        from: "Nhat Truong",
-        to: result.value.email,
-        subject: "MOTORCYCLE RESPONSE",
-        text: "You recieved message from Nhat Truong",
-        html:
-          "<div style='border: 1px solid black;border-top: 5px solid black; width: fit-content; padding: 10px;' >" +
-          "<p style='font-size: 12px'>ĐÃ XÁC NHẬN</p>" +
-          "<h6>Xin chào" +
-          result.value.name +
-          "!</h6><br/><p>Chúng tôi đã xem thông tin đăng ký từ bạn, Chúng tôi sẽ sớm sắp lịch và thông báo cho bạn sau</p>" +
-          "</div><p><b>Mọi thắc mắc vui lòng phản hồi về Email này!</b></p>"
-      };
-      transporter.sendMail(mainOptions, function (err, info) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Message sent: " + info.response);
-        }
-      });
-    }
-
     return result;
   }
 

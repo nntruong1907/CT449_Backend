@@ -1,19 +1,19 @@
 const express = require("express");
 const users = require("../controllers/user.controller");
+const auth = require("../middlewares/auth");
+const uploadCloud = require("../middlewares/uploader.js");
 
 const router = express.Router();
 
-router.route("/signup")
-  .post(users.create)
-
-router.route("/login")
-  .post(users.login)
-
 router.route("/")
-  .get(users.findAll)
+  .get(auth.verifyTokenAdmin, users.findAll)
+
+router.route("/logout")
+  .post(users.logOut)
 
 router.route("/:id")
-  .delete(users.delete)
-  .put(users.update)
+  .get(auth.verifyTokenAdmin, users.findOne)
+  .delete(auth.verifyTokenAdmin, users.delete)
+  .put(auth.verifyTokenAdmin, uploadCloud.single('avatar'), users.update)
   
 module.exports = router;

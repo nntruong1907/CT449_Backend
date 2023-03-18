@@ -10,7 +10,6 @@ exports.create = async (req, res, next) => {
   }
   try {
     const fileData = req.file
-    // console.log(fileData)
     const productService = new ProductService(MongoDB.client);
     if (!req.body.quantity) {
       cloudinary.uploader.destroy(fileData.filename)
@@ -22,7 +21,7 @@ exports.create = async (req, res, next) => {
       return next(new ApiError(400, "Product already exists"));
     }
     const document = await productService.create({ ...req.body, path: fileData?.path, filename: fileData?.filename });
-    console.log(document)
+    console.log("🚀 ~ file: product.controller.js:24 ~ exports.create= ~ document:", document)
     return res.send(document);
 
   } catch (error) {

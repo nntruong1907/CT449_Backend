@@ -1,14 +1,16 @@
 const express = require("express");
 const orders = require("../controllers/order.controller");
+const auth = require("../middlewares/auth");
 
 const router = express.Router();
 
 router.route("/")
   .post(orders.create)
   .get(orders.findAll)
-  .delete(orders.deleteAll);
 
 router.route("/:id")
-  .put(orders.update)
+  .get(orders.findOne)
+  .put(auth.verifyTokenAdmin, orders.update)
+  .delete(orders.delete);
 
 module.exports = router;
