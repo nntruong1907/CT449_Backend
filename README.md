@@ -26,6 +26,10 @@ This is a motorcycle business e-commerce website project
 
 - A multer storage engine for Cloudinary. <a href="https://www.npmjs.com/package/multer-storage-cloudinary"><img src="https://img.shields.io/badge/multer storagecloudinary-v4.0.0-blue?logo=multer-storage-cloudinary" /></a>
 
+- Parse Cookie header and populate req.cookies with an object keyed by the cookie names. <a href="https://www.npmjs.com/package/cookie-parser"><img src="https://img.shields.io/badge/cookie parser-v1.4.6-blue?logo=cookie-parser" /></a>
+
+- An implementation of JSON Web Tokens. <a href="https://www.npmjs.com/package/jsonwebtoken"><img src="https://img.shields.io/badge/jsonwebtoken-v9.0.0-blue?logo=jsonwebtoken" /></a>
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Postman](https://www.postman.com) + [MongoDB Compass](https://www.mongodb.com/)
