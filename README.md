@@ -36,6 +36,11 @@ npm install
 
 - An implementation of JSON Web Tokens. <a href="https://www.npmjs.com/package/jsonwebtoken"><img src="https://img.shields.io/badge/jsonwebtoken-v9.0.0-blue?logo=jsonwebtoken" /></a>
 
-## Recommended IDE Setup
+## Recommended IDE Setup and Tools
 
 [VSCode](https://code.visualstudio.com/) + [Postman](https://www.postman.com) + [MongoDB Compass](https://www.mongodb.com/)
+
+<h2 align="center">
+
+  <img src="https://media1.giphy.com/media/9j5LELD2fSz2aYGGCe/giphy.gif?cid=ecf05e477fbqfs5q6weo2iarnwxc4xz6cf8kf3esj2k84z50&rid=giphy.gif&ct=g" alt="Coder GIF" width="500">
+</h2> 
