@@ -1,14 +1,40 @@
 [
   {
-    "name": "",
-    "phone": "",
-    "avatar": "", 
-    "address": "",
-    "email": "",
+    "_id": {
+      "$oid": "64154c001d4d9adbfc4bb4ba"
+    },
     "account": {
-      "username": "",
-      "password": "",
-      "permission": ""
-    }
+      "username": "admin",
+      "password": "$2b$10$hriKKt9waJ7aGPV6NuAEI.oCvQgtuqAQPmH/.sW32Vok02HHCsir6",
+      "admin": true
+    },
+    "address": "Dong Thap",
+    "email": "truongb1910325@student.ctu.edu.vn",
+    "name": "Nguyen Nhat Truong",
+    "phone": "0932456249",
+    "avatar": {
+      "avatar_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609678/motorcycle/avt/avt5_wr6sey.png"
+    },
+    "isLogIn": true
+  },
+
+  {
+    "_id": {
+      "$oid": "641e93263c1b061785c9878e"
+    },
+    "account": {
+      "username": "nhattruong",
+      "password": "$2b$10$7tvhGccXj2hf3VzHUJmOMuNdzWOg5FKptwxfogYGEvEUrCd0WKe4u",
+      "admin": false
+    },
+    "address": "Đồng Tháp",
+    "email": "usertest1@student.ctu.edu.vn",
+    "name": "Nguyễn Nhật Trường",
+    "phone": "0932456246",
+    "avatar": {
+      "avatar_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609678/motorcycle/avt/avt5_wr6sey.png"
+    },
+    "isLogIn": false
   }
+
 ]

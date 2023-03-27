@@ -2,6 +2,12 @@
 
 This is a motorcycle business e-commerce website project
 
+## Project Setup
+
+```sh
+npm install
+```
+
 ## Related Library
 
 - Open-source, cross-platform JavaScript runtime environment. <a href="https://nodejs.org/en/" alt="Nodejs"><img src="https://img.shields.io/badge/Nodejs-v18.13.0-blue?logo=nodejs" /></a>

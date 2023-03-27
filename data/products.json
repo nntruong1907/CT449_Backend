@@ -1,86 +1,811 @@
 [
-  {
-    "type_id": "street",
-    "name": "Kawasaki Ninja 250",
-    "type_brand": "kawasaki",
-    "price": 122698000,
-    "image": "iris-S-Class.webp",
-    "details": {
-      "weight": 164,
-      "length": 1990,
-      "width": 710,
-      "height": 1125,
-      "ground_clearance": 145,
-      "fuel_capacity": 14,
-      "color": { "inSide": "Đen", "outSide": "Xanh" },
-      "year": 2021,
-      "engine": "Parallel Twin Cylinder, 4-Stroke, Liquid Cooled Engine",
-      "power": 38.46,
-      "speed": 170,
-      "compression_ratio": "11.6:1"
-    }
-  },
-  {
-    "type_id": "sport",
-    "name": "Kawasaki Z900",
-    "type_brand": "kawasaki",
-    "price": 396825000,
-    "image": "iris-S-Class.webp",
-    "details": {
-      "weight": 210,
-      "length": 2115,
-      "width": 825,
-      "height": 1065,
-      "ground_clearance": 130,
-      "fuel_capacity": 17,
-      "color": { "inSide": "Đen", "outSide": "Xanh" },
-      "year": 2021,
-      "engine": "Liquid Cooled, 4-Stroke, 4-Cylinder",
-      "power": 123.29,
-      "speed": 195,
-      "compression_ratio": "11.8:1"
-    }
-  },
-  {
-    "type_id": "cruiser",
-    "name": "Kawasaki Vulcan S",
-    "type_brand": "kawasaki",
-    "price": 301420000,
-    "image": "iris-S-Class.webp",
-    "details": {
-      "weight": 226,
-      "length": 2310,
-      "width": 855,
-      "height": 1090,
-      "ground_clearance": 130,
-      "fuel_capacity": 14,
-      "color": { "inSide": "Đen", "outSide": "Xanh" },
-      "year": 2022,
-      "engine": "4-stroke, 2-cylinder, DOHC, liquid-cooled",
-      "power": 60.3,
-      "speed": 170,
-      "compression_ratio": "10.8:1"
-    }
-  },
-  {
-    "type_id": "touring",
-    "name": "Concours 14 ABS",
-    "type_brand": "kawasaki",
-    "price": 122698000,
-    "image": "iris-S-Class.webp",
-    "details": {
-      "weight": 164,
-      "length": 2230,
-      "width": 1000,
-      "height": 1465,
-      "ground_clearance": 125,
-      "fuel_capacity": 22,
-      "color": { "inSide": "Đen", "outSide": "Xám" },
-      "year": 2022,
-      "engine": "4-stroke, 4-cylinder, DOHC, 4-valve, liquid-cooled",
-      "power": 38.46,
-      "speed": 170,
-      "compression_ratio": "10.7:1"
-    }
-  }
+    {
+        "_id": {
+          "$oid": "64213517a9221099f11af3a5"
+        },
+        "_brandid": "6420103a809f5d95726c5b20",
+        "_typeid": "641ff183809f5d95726c46f6",
+        "details": {
+          "weight": 211,
+          "length": 2140,
+          "width": 815,
+          "height": 1130,
+          "ground_clearance": 145,
+          "fuel_capacity": 13,
+          "color": "Bạc",
+          "year": 2023,
+          "engine": "Xi lanh đôi, DOHC, 8 van, làm mát bằng dung dịch, dung tích 895cc",
+          "power": 78,
+          "speed": 216,
+          "compression_ratio": "13.1:1"
+        },
+        "image": {
+          "image_name": "motorcycle/hjoi3sqqupgksglvugke",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679897885/motorcycle/hjoi3sqqupgksglvugke.png"
+        },
+        "name": "F900 R",
+        "price": 499000000,
+        "quantity": 10,
+        "date_create": "13:17:59 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "642138eea9221099f11af64e"
+        },
+        "_brandid": "6420103a809f5d95726c5b20",
+        "_typeid": "641feb34809f5d95726c4293",
+        "details": {
+          "weight": 336,
+          "length": 2470,
+          "width": 1000,
+          "height": 1300,
+          "ground_clearance": 71,
+          "fuel_capacity": 34,
+          "color": "Đen",
+          "year": 2023,
+          "engine": "6 xi lanh, 24 van, làm mát bằng dung dịch, dung tích 1.649cc",
+          "power": 118,
+          "speed": 210,
+          "compression_ratio": "12.2:1"
+        },
+        "image": {
+          "image_name": "motorcycle/b929nsx6k5rnzlqrrwdo",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679898868/motorcycle/b929nsx6k5rnzlqrrwdo.png"
+        },
+        "name": "K1600 B",
+        "price": 1250000000,
+        "quantity": 5,
+        "date_create": "13:34:22 27/3/2023"
+      },
+      
+      {
+        "_id": {
+          "$oid": "64213ba5a9221099f11af80e"
+        },
+        "_brandid": "6420103a809f5d95726c5b20",
+        "_typeid": "641feb34809f5d95726c4293",
+        "details": {
+          "weight": 279,
+          "length": 2222,
+          "width": 985,
+          "height": 1460,
+          "ground_clearance": 125,
+          "fuel_capacity": 25,
+          "color": "Trắng",
+          "year": 2021,
+          "engine": "Động cơ boxer 4 thì 2 xi lanh, làm mát bằng gió/chất lỏng, dung tích 1.254 cc",
+          "power": 100,
+          "speed": 210,
+          "compression_ratio": "12.5:1"
+        },
+        "image": {
+          "image_name": "motorcycle/zywbjy3v5mkfugbg0tya",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679899563/motorcycle/zywbjy3v5mkfugbg0tya.png"
+        },
+        "name": "R1250 RT",
+        "price": 1099000000,
+        "quantity": 5,
+        "date_create": "13:45:57 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "64213d83a9221099f11af948"
+        },
+        "_brandid": "6420103a809f5d95726c5b20",
+        "_typeid": "641ff183809f5d95726c46f6",
+        "details": {
+          "weight": 197,
+          "length": 2073,
+          "width": 848,
+          "height": 1205,
+          "ground_clearance": 145,
+          "fuel_capacity": 16,
+          "color": "Đen",
+          "year": 2023,
+          "engine": "Động cơ boxer 4 thì , 4 xi lanh, làm mát bằng chất lỏng, dung tích  999 cc",
+          "power": 154,
+          "speed": 303,
+          "compression_ratio": "13.3:1"
+        },
+        "image": {
+          "image_name": "motorcycle/rksbh63jv0cqjtdee1vs",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679900040/motorcycle/rksbh63jv0cqjtdee1vs.png"
+        },
+        "name": "S1000 RR",
+        "price": 458000000,
+        "quantity": 10,
+        "date_create": "13:53:55 27/3/2023"
+      },
+      
+      {
+        "_id": {
+          "$oid": "64213f37a9221099f11afa83"
+        },
+        "_brandid": "6420103a809f5d95726c5b20",
+        "_typeid": "641ff183809f5d95726c46f6",
+        "details": {
+          "weight": 197,
+          "length": 2073,
+          "width": 848,
+          "height": 1205,
+          "ground_clearance": 145,
+          "fuel_capacity": 16,
+          "color": "Đỏ",
+          "year": 2023,
+          "engine": "Động cơ boxer 4 thì , 4 xi lanh, làm mát bằng chất lỏng, dung tích  999 cc",
+          "power": 154,
+          "speed": 303,
+          "compression_ratio": "13.3:1"
+        },
+        "image": {
+          "image_name": "motorcycle/xbg7kqdfukimtokuoen6",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679900476/motorcycle/xbg7kqdfukimtokuoen6.png"
+        },
+        "name": "S1000 RR",
+        "price": 458000000,
+        "quantity": 10,
+        "date_create": "14:01:11 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "6421419da9221099f11afc0a"
+        },
+        "_brandid": "6420103a809f5d95726c5b20",
+        "_typeid": "641feb23809f5d95726c4287",
+        "details": {
+          "weight": 215,
+          "length": 2441,
+          "width": 965,
+          "height": 1125,
+          "ground_clearance": 130,
+          "fuel_capacity": 16,
+          "color": "Đen",
+          "year": 2023,
+          "engine": "Động cơ Boxer 4 thì 2 xy lanh, làm mát bằng gió và dầu với 2 trục cam dẫn động bằng xích phía trên trục truyền động, dung tích  1802 cc",
+          "power": 67,
+          "speed": 210,
+          "compression_ratio": "9.6:1"
+        },
+        "image": {
+          "image_name": "motorcycle/n3tctn9kmodhh59edn7n",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679901091/motorcycle/n3tctn9kmodhh59edn7n.png"
+        },
+        "name": "R18 First Edition",
+        "price": 1039000000,
+        "quantity": 5,
+        "date_create": "14:11:25 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "64214353a9221099f11afd28"
+        },
+        "_brandid": "6420103a809f5d95726c5b20",
+        "_typeid": "641feb05809f5d95726c4270",
+        "details": {
+          "weight": 212,
+          "length": 2073,
+          "width": 848,
+          "height": 1197,
+          "ground_clearance": 145,
+          "fuel_capacity": 16,
+          "color": "Trắng",
+          "year": 2023,
+          "engine": "Động cơ 4 xy lanh, làm mát bằng chất lỏng, 4 van titanium trên mỗi xi lanh và công nghệ BMW ShiftCam, dung tích  999 cc",
+          "power": 156,
+          "speed": 306,
+          "compression_ratio": "13.5:1"
+        },
+        "image": {
+          "image_name": "motorcycle/edlklpz1aiwkzmobz6zn",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679901529/motorcycle/edlklpz1aiwkzmobz6zn.png"
+        },
+        "name": "M1000 RR",
+        "price": 1500000000,
+        "quantity": 5,
+        "date_create": "14:18:43 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "642146d7a9221099f11aff7c"
+        },
+        "_brandid": "642010d5809f5d95726c5b90",
+        "_typeid": "641ff183809f5d95726c46f6",
+        "details": {
+          "weight": 199,
+          "length": 1594,
+          "width": 848,
+          "height": 1197,
+          "ground_clearance": 145,
+          "fuel_capacity": 20,
+          "color": "Đỏ",
+          "year": 2022,
+          "engine": "Động cơ L-Twin Superquadro, làm mát bằng chất lỏng, dung tích 955 cc",
+          "power": 83,
+          "speed": 230,
+          "compression_ratio": "12.5:1"
+        },
+        "image": {
+          "image_name": "motorcycle/sdt8sscjqpvbk0tdfxiy",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679902429/motorcycle/sdt8sscjqpvbk0tdfxiy.png"
+        },
+        "name": "Panigale V2",
+        "price": 620000000,
+        "quantity": 10,
+        "date_create": "14:33:43 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "64214906a9221099f11b00e2"
+        },
+        "_brandid": "642010d5809f5d95726c5b90",
+        "_typeid": "641feb05809f5d95726c4270",
+        "details": {
+          "weight": 183,
+          "length": 1478,
+          "width": 848,
+          "height": 1197,
+          "ground_clearance": 145,
+          "fuel_capacity": 16,
+          "color": "Trắng",
+          "year": 2022,
+          "engine": "Động cơ L-Twin, làm mát bằng dung dịch, dung tích 937 cc",
+          "power": 81,
+          "speed": 210,
+          "compression_ratio": "12.5:1"
+        },
+        "image": {
+          "image_name": "motorcycle/muwbetbugckelnncdnv1",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679902988/motorcycle/muwbetbugckelnncdnv1.png"
+        },
+        "name": "Supersport 950 S",
+        "price": 590000000,
+        "quantity": 5,
+        "date_create": "14:43:02 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "64214bcba9221099f11b02b3"
+        },
+        "_brandid": "64201329809f5d95726c5d15",
+        "_typeid": "641feb05809f5d95726c4270",
+        "details": {
+          "weight": 201,
+          "length": 2100,
+          "width": 745,
+          "height": 1140,
+          "ground_clearance": 115,
+          "fuel_capacity": 16,
+          "color": "Trắng",
+          "year": 2021,
+          "engine": "Động cơ  4 xi lanh, DOHC, làm mát bằng dung dịch, dung tích 999 cc",
+          "power": 157,
+          "speed": 303,
+          "compression_ratio": "13.0:1"
+        },
+        "image": {
+          "image_name": "motorcycle/jsw5gggy6zsxxopfdq5l",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679903697/motorcycle/jsw5gggy6zsxxopfdq5l.png"
+        },
+        "name": "CBR1000 RR",
+        "price": 1049000000,
+        "quantity": 3,
+        "date_create": "14:54:51 27/3/2023"
+      },
+      
+      {
+        "_id": {
+          "$oid": "64214e44a9221099f11b0453"
+        },
+        "_brandid": "64201329809f5d95726c5d15",
+        "_typeid": "641feb34809f5d95726c4293",
+        "details": {
+          "weight": 380,
+          "length": 2579,
+          "width": 950,
+          "height": 1432,
+          "ground_clearance": 115,
+          "fuel_capacity": 20,
+          "color": "Đen",
+          "year": 2021,
+          "engine": "Động cơ 6 xi lanh, DOHC, làm mát bằng dung dịch, dung tích 1833 cc",
+          "power": 92,
+          "speed": 220,
+          "compression_ratio": "10.5:1"
+        },
+        "image": {
+          "image_name": "motorcycle/tpcv23ydhrhwdzhijlsl",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679904330/motorcycle/tpcv23ydhrhwdzhijlsl.png"
+        },
+        "name": "Goldwing",
+        "price": 1049000000,
+        "quantity": 2,
+        "date_create": "15:05:24 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "64215061a9221099f11b05b6"
+        },
+        "_brandid": "64201329809f5d95726c5d15",
+        "_typeid": "641feb23809f5d95726c4287",
+        "details": {
+          "weight": 170,
+          "length": 2190,
+          "width": 820,
+          "height": 1093,
+          "ground_clearance": 120,
+          "fuel_capacity": 11,
+          "color": "Đen",
+          "year": 2023,
+          "engine": "Động cơ 2 xi lanh, DOHC, làm mát bằng dung dịch, dung tích 286 cc",
+          "power": 30,
+          "speed": 200,
+          "compression_ratio": "10.7:1"
+        },
+        "image": {
+          "image_name": "motorcycle/lwnhkq7cr37sgmnprcb5",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679904872/motorcycle/lwnhkq7cr37sgmnprcb5.png"
+        },
+        "name": "Rebel 300",
+        "price": 125000000,
+        "quantity": 10,
+        "date_create": "15:14:25 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "6421521aa9221099f11b06eb"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641ff183809f5d95726c46f6",
+        "details": {
+          "weight": 194,
+          "length": 2055,
+          "width": 740,
+          "height": 1135,
+          "ground_clearance": 130,
+          "fuel_capacity": 15,
+          "color": "Đen",
+          "year": 2020,
+          "engine": "Động cơ xi-lanh đôi, 4 thì DOHC, làm mát bằng dung dịch, dung tích 649 cc",
+          "power": 50,
+          "speed": 212,
+          "compression_ratio": "10.8:1"
+        },
+        "image": {
+          "image_name": "motorcycle/v9x3pizooweyrcqd1rei",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679905312/motorcycle/v9x3pizooweyrcqd1rei.png"
+        },
+        "name": "Ninja 650",
+        "price": 270000000,
+        "quantity": 5,
+        "date_create": "15:21:46 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "642153cca9221099f11b07f8"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641ff183809f5d95726c46f6",
+        "details": {
+          "weight": 170,
+          "length": 1990,
+          "width": 710,
+          "height": 1120,
+          "ground_clearance": 130,
+          "fuel_capacity": 14,
+          "color": "Đen",
+          "year": 2021,
+          "engine": "Động cơ xi-lanh đôi, 4 thì DOHC, làm mát bằng chất lỏng, dung tích 399 cc",
+          "power": 33,
+          "speed": 203,
+          "compression_ratio": "11.5:1"
+        },
+        "image": {
+          "image_name": "motorcycle/gefeppkxwnlapwvgl2hf",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679905747/motorcycle/gefeppkxwnlapwvgl2hf.png"
+        },
+        "name": "Ninja 400",
+        "price": 160000000,
+        "quantity": 5,
+        "date_create": "15:29:00 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "642154aaa9221099f11b0884"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641ff183809f5d95726c46f6",
+        "details": {
+          "weight": 170,
+          "length": 1990,
+          "width": 710,
+          "height": 1120,
+          "ground_clearance": 130,
+          "fuel_capacity": 14,
+          "color": "Xanh lá",
+          "year": 2021,
+          "engine": "Động cơ xi-lanh đôi, 4 thì DOHC, làm mát bằng chất lỏng, dung tích 399 cc",
+          "power": 33,
+          "speed": 203,
+          "compression_ratio": "11.5:1"
+        },
+        "image": {
+          "image_name": "motorcycle/hmf79avl4kangjp5wznb",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679905968/motorcycle/hmf79avl4kangjp5wznb.png"
+        },
+        "name": "Ninja 400",
+        "price": 160000000,
+        "quantity": 5,
+        "date_create": "15:32:42 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "642155dca9221099f11b0945"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641ff183809f5d95726c46f6",
+        "details": {
+          "weight": 165,
+          "length": 1990,
+          "width": 710,
+          "height": 1120,
+          "ground_clearance": 130,
+          "fuel_capacity": 14,
+          "color": "Đen",
+          "year": 2021,
+          "engine": "Động cơ xi-lanh đôi, 4 thì DOHC, làm mát bằng chất lỏng, dung tích 399 cc",
+          "power": 33,
+          "speed": 203,
+          "compression_ratio": "11.5:1"
+        },
+        "image": {
+          "image_name": "motorcycle/urin8glexvuwrjyntfxw",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679906274/motorcycle/urin8glexvuwrjyntfxw.png"
+        },
+        "name": "Z400",
+        "price": 130000000,
+        "quantity": 5,
+        "date_create": "15:37:48 27/3/2023"
+      },
+      
+      {
+        "_id": {
+          "$oid": "6421570ba9221099f11b0a02"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641ff183809f5d95726c46f6",
+        "details": {
+          "weight": 215,
+          "length": 2100,
+          "width": 1150,
+          "height": 865,
+          "ground_clearance": 130,
+          "fuel_capacity": 17,
+          "color": "Đen",
+          "year": 2021,
+          "engine": "Động cơ xi-lanh đôi, 4 thì DOHC, làm mát bằng chất lỏng, dung tích 948 cc",
+          "power": 82,
+          "speed": 209,
+          "compression_ratio": "10.8:1"
+        },
+        "image": {
+          "image_name": "motorcycle/lunulngny5omnbwzlbla",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679906577/motorcycle/lunulngny5omnbwzlbla.png"
+        },
+        "name": "Z900 RS",
+        "price": 415000000,
+        "quantity": 5,
+        "date_create": "15:42:51 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "6421587ea9221099f11b0ae8"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641ff183809f5d95726c46f6",
+        "details": {
+          "weight": 182,
+          "length": 1980,
+          "width": 750,
+          "height": 1110,
+          "ground_clearance": 125,
+          "fuel_capacity": 15,
+          "color": "Xanh dương",
+          "year": 2022,
+          "engine": "Động cơ xi-lanh đôi, 4 thì DOHC, làm mát bằng chất lỏng, dung tích 249,8 cc",
+          "power": 38,
+          "speed": 203,
+          "compression_ratio": "11.5:1"
+        },
+        "image": {
+          "image_name": "motorcycle/kkuexiimoycbg7ohsfvz",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679906948/motorcycle/kkuexiimoycbg7ohsfvz.png"
+        },
+        "name": "Ninja ZX 25R",
+        "price": 195000000,
+        "quantity": 5,
+        "date_create": "15:49:02 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "642159e1a9221099f11b0bcd"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641ff183809f5d95726c46f6",
+        "details": {
+          "weight": 187,
+          "length": 2055,
+          "width": 755,
+          "height": 1180,
+          "ground_clearance": 130,
+          "fuel_capacity": 12,
+          "color": "Đen",
+          "year": 2022,
+          "engine": "Động cơ xi-lanh đôi, 4 thì DOHC, làm mát bằng chất lỏng, dung tích 649 cc",
+          "power": 50,
+          "speed": 212,
+          "compression_ratio": "10.8:1"
+        },
+        "image": {
+          "image_name": "motorcycle/wyzigwdp5bypszuzfgm4",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679907303/motorcycle/wyzigwdp5bypszuzfgm4.png"
+        },
+        "name": "Z650",
+        "price": 260000000,
+        "quantity": 5,
+        "date_create": "15:54:57 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "64215bf1a9221099f11b0d29"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641feb05809f5d95726c4270",
+        "details": {
+          "weight": 256,
+          "length": 2136,
+          "width": 775,
+          "height": 1204,
+          "ground_clearance": 130,
+          "fuel_capacity": 19,
+          "color": "Carbon",
+          "year": 2022,
+          "engine": "Động cơ 4 xi-lanh siêu nạp, 16 van, DOHC, làm mát bằng dung dịch, dung tích 998 cc",
+          "power": 167,
+          "speed": 220,
+          "compression_ratio": "11.2:1"
+        },
+        "image": {
+          "image_name": "motorcycle/vgv5d2wcceoswhcha4it",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679907831/motorcycle/vgv5d2wcceoswhcha4it.png"
+        },
+        "name": "Ninja H2 Carbon",
+        "price": 1299000000,
+        "quantity": 3,
+        "date_create": "16:03:45 27/3/2023"
+      },
+      
+      {
+        "_id": {
+          "$oid": "64215d96a9221099f11b0e3a"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641feb05809f5d95726c4270",
+        "details": {
+          "weight": 210,
+          "length": 2056,
+          "width": 825,
+          "height": 1065,
+          "ground_clearance": 130,
+          "fuel_capacity": 15,
+          "color": "Đen",
+          "year": 2022,
+          "engine": "Động cơ 4 thì, 4 xi lanh, DOHC, W /C, làm mát bằng dung dịch, dung tích 948 cc",
+          "power": 98,
+          "speed": 195,
+          "compression_ratio": "11.8:1"
+        },
+        "image": {
+          "image_name": "motorcycle/bvzgpdgz4zjo6ukggnet",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679908252/motorcycle/bvzgpdgz4zjo6ukggnet.png"
+        },
+        "name": "Z900",
+        "price": 299000000,
+        "quantity": 3,
+        "date_create": "16:10:46 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "64215f63a9221099f11b0f65"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641feb05809f5d95726c4270",
+        "details": {
+          "weight": 221,
+          "length": 2045,
+          "width": 790,
+          "height": 1055,
+          "ground_clearance": 125,
+          "fuel_capacity": 17,
+          "color": "Xanh lá",
+          "year": 2023,
+          "engine": "Động cơ 4 thì, 4 xi lanh, DOHC, làm mát bằng chất lỏng, dung tích 1043 cc",
+          "power": 103,
+          "speed": 258,
+          "compression_ratio": "11.8:1"
+        },
+        "image": {
+          "image_name": "motorcycle/yn4a6pkvinpf77rghwva",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679908713/motorcycle/yn4a6pkvinpf77rghwva.png"
+        },
+        "name": "Z1000",
+        "price": 499000000,
+        "quantity": 3,
+        "date_create": "16:18:27 27/3/2023"
+      },
+      
+      {
+        "_id": {
+          "$oid": "6421617ea9221099f11b10c1"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641feb05809f5d95726c4270",
+        "details": {
+          "weight": 206,
+          "length": 2090,
+          "width": 745,
+          "height": 1145,
+          "ground_clearance": 145,
+          "fuel_capacity": 17,
+          "color": "Đen",
+          "year": 2023,
+          "engine": "Động cơ 4 thì, 4 xi lanh, DOHC, làm mát bằng chất lỏng, dung tích 998 cc",
+          "power": 155,
+          "speed": 203,
+          "compression_ratio": "13.0:1"
+        },
+        "image": {
+          "image_name": "motorcycle/ajpdxxxo79erpv9yrcvf",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679909252/motorcycle/ajpdxxxo79erpv9yrcvf.png"
+        },
+        "name": "Ninja ZX 10R",
+        "price": 789000000,
+        "quantity": 3,
+        "date_create": "16:27:26 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "6421636ba9221099f11b11f8"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641feb23809f5d95726c4287",
+        "details": {
+          "weight": 226,
+          "length": 2310,
+          "width": 880,
+          "height": 1100,
+          "ground_clearance": 130,
+          "fuel_capacity": 14,
+          "color": "Đen",
+          "year": 2023,
+          "engine": "Động cơ 4 thì, 4 xi lanh, DOHC, W / C, làm mát bằng chất lỏng, dung tích 649 cc",
+          "power": 45,
+          "speed": 170,
+          "compression_ratio": "10.8:1"
+        },
+        "image": {
+          "image_name": "motorcycle/yw2zjcuxxkfrneznxlyb",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679909745/motorcycle/yw2zjcuxxkfrneznxlyb.png"
+        },
+        "name": "Vucan S",
+        "price": 299000000,
+        "quantity": 3,
+        "date_create": "16:35:39 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "64216542a9221099f11b131e"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641feb23809f5d95726c4287",
+        "details": {
+          "weight": 126,
+          "length": 1930,
+          "width": 765,
+          "height": 1030,
+          "ground_clearance": 130,
+          "fuel_capacity": 14,
+          "color": "Đen",
+          "year": 2022,
+          "engine": "Động cơ 4 thì, 4 xi lanh, SOHC, A / C, làm mát bằng chất lỏng, dung tích 177 cc",
+          "power": 10,
+          "speed": 120,
+          "compression_ratio": "9.1:1"
+        },
+        "image": {
+          "image_name": "motorcycle/viqzgzfhoif9veqo1ban",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679910216/motorcycle/viqzgzfhoif9veqo1ban.png"
+        },
+        "name": "W175",
+        "price": 99000000,
+        "quantity": 3,
+        "date_create": "16:43:30 27/3/2023"
+      },
+      
+      {
+        "_id": {
+          "$oid": "64216667a9221099f11b13f5"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641feb34809f5d95726c4293",
+        "details": {
+          "weight": 126,
+          "length": 2170,
+          "width": 860,
+          "height": 1390,
+          "ground_clearance": 130,
+          "fuel_capacity": 17,
+          "color": "Đen",
+          "year": 2021,
+          "engine": "Động cơ 4 thì, 4 xi lanh, DOHC, làm mát bằng chất lỏng, dung tích 296 cc",
+          "power": 29,
+          "speed": 190,
+          "compression_ratio": "10.6:1"
+        },
+        "image": {
+          "image_name": "motorcycle/in7mb48d1pdpnr0tmas6",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679910510/motorcycle/in7mb48d1pdpnr0tmas6.png"
+        },
+        "name": "Versys X 300",
+        "price": 169000000,
+        "quantity": 3,
+        "date_create": "16:48:23 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "64216adaa9221099f11b16ee"
+        },
+        "_brandid": "64201554809f5d95726c5ec5",
+        "_typeid": "641feb34809f5d95726c4293",
+        "details": {
+          "weight": 126,
+          "length": 2170,
+          "width": 860,
+          "height": 1390,
+          "ground_clearance": 130,
+          "fuel_capacity": 17,
+          "color": "Xanh lá",
+          "year": 2021,
+          "engine": "Động cơ 4 thì, 4 xi lanh, DOHC, làm mát bằng chất lỏng, dung tích 296 cc",
+          "power": 29,
+          "speed": 190,
+          "compression_ratio": "10.6:1"
+        },
+        "image": {
+          "image_name": "motorcycle/zlkpirffnaujjkhrajel",
+          "image_path": "https://res.cloudinary.com/dvbzja2gq/image/upload/v1679911648/motorcycle/zlkpirffnaujjkhrajel.png"
+        },
+        "name": "Versys X 300",
+        "price": 169000000,
+        "quantity": 3,
+        "date_create": "17:07:22 27/3/2023"
+      }
 ]

@@ -7,47 +7,93 @@ class OrderService {
   }
   extractOrderData(payload) {
     const order = {
-      _id_user: payload._id_user,
-      _id_motor: payload._id_motor,
-      quantity_motor: payload.quantity_motor,
-      phone_order: payload.phone_order,
-      address_order: payload.address_order,
-      time_oder: new Date().toLocaleString("vi-VN", {
-        timeZone: "Asia/Ho_Chi_Minh",
-      }),
+      _userid: payload._userid,
+      _productid: payload._productid,
+      receiver: {
+        name: payload.receiver.name,
+        phone: payload.receiver.phone,
+        email: payload.receiver.email,
+        address: payload.receiver.address,
+      },
+      payment: payload.payment,
+
+      status: payload.status
     };
 
     // remove undefined fields
     Object.keys(order).forEach(
       (key) => order[key] === undefined && delete order[key]
     );
+    Object.keys(order.receiver).forEach(
+      (key) => order.receiver[key] === undefined && delete order.receiver[key]
+    );
+    if (Object.keys(order.receiver).length == 0) { delete order.receiver };
+
     return order;
   }
 
-  // async create(payload) {
-  //   const order = this.extractOrderData(payload);
-  //   const result = await this.Order.insertOne(order);
+  async findByName(name) {
+    const cursor = await this.Order.aggregate([
+      { $match: { "receiver.name": name } },
+      { $addFields: { "_productid": { $toObjectId: "$_productid" } } },
+      {
+        $lookup: {
+          from: "products",
+          localField: "_productid",
+          foreignField: "_id",
+          as: "product"
+        }
+      },
+      { $unwind: "$product" },
+    ]);
 
-  //   return result;
-  // }
+    return await cursor.toArray();
+  }
 
-  async create(payload) {
-    const order = this.extractOrderData(payload);
-    const result = await this.Order.findOneAndUpdate(
-      order,
-      { $set: { status: 'Chưa xác nhận' } },
-      { returnDocumnet: "after", upsert: true }
-    );
-    return result.value;
+  async findByPhone(phone) {
+    const cursor = await this.Order.aggregate([
+      { $match: { "receiver.phone": phone } },
+      { $addFields: { "_productid": { $toObjectId: "$_productid" } } },
+      {
+        $lookup: {
+          from: "products",
+          localField: "_productid",
+          foreignField: "_id",
+          as: "product"
+        }
+      },
+      { $unwind: "$product" },
+    ]);
+
+    return await cursor.toArray();
+  }
+
+  async findByStatus(status) {
+    const cursor = await this.Order.aggregate([
+      { $match: { status: status } },
+      { $addFields: { "_productid": { $toObjectId: "$_productid" } } },
+      {
+        $lookup: {
+          from: "products",
+          localField: "_productid",
+          foreignField: "_id",
+          as: "product"
+        }
+      },
+      { $unwind: "$product" },
+    ]);
+
+    return await cursor.toArray();
   }
 
   async findAll() {
     const cursor = await this.Order.aggregate([
+      { $addFields: { "_productid": { $toObjectId: "$_productid" } } },
       {
         $lookup: {
           from: "products",
-          localField: "motor_name",
-          foreignField: "name",
+          localField: "_productid",
+          foreignField: "_id",
           as: "product",
         },
       },
@@ -56,57 +102,58 @@ class OrderService {
     return await cursor.toArray();
   }
 
-  async findByPhone(phone) {
-    return await this.Order.aggregate([
-      {
-        $lookup: {
-          from: "products",
-          let: { motor_name: "$motor_name", phone: "$phone" },
-          pipeline: [
-            {
-              $match: {
-                $expr: {
-                  $and: [
-                    { $eq: ["$name", "$$motor_name"] },
-                    { $eq: ["$$phone", phone] },
-                  ],
-                },
-              },
-            },
-          ],
-          as: "product",
-        },
-      },
-      { $unwind: "$product" },
-    ]).toArray();
-
-    // find({
-    //   phone: { $regex: new RegExp(phone), $options: "i" },
-    // }).toArray();
-  }
-
-  async findByName(name) {
-    return await this.Order.aggregate([
-      {
-        $lookup: {
-          from: "products",
-          localField: "motor_name",
-          foreignField: "name",
-          as: "product",
-        },
-      },
-      { $match: { name: name } },
-      { $unwind: "$product" },
-    ]).toArray();
-  }
-
-  async findById(name) {
+  async findById(id) {
     return await this.Order.findOne({
-      name: name,
+      _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
     });
   }
 
+  async findByOrderId(id) {
+    const cursor = await this.Order.aggregate([
+      { $match: { "_id": ObjectId.isValid(id) ? new ObjectId(id) : null } },
+      { $addFields: { "_productid": { $toObjectId: "$_productid" } } },
+      {
+        $lookup: {
+          from: "products",
+          localField: "_productid",
+          foreignField: "_id",
+          as: "product"
+        }
+      },
+      { $unwind: "$product" },
+    ]);
+
+    return await cursor.toArray();
+  }
+
+  async findByProductId(productid) {
+    const cursor = await this.Order.find({
+      _productid: productid ? productid.toString() : null,
+    });
+
+    return await cursor.toArray();
+  }
+
+  async create(payload) {
+    const order = this.extractOrderData(payload);
+    const result = await this.Order.findOneAndUpdate(
+      order,
+      {
+        $set: {
+          status: 'Chưa xác nhận',
+          date_oder: new Date().toLocaleString("vi-VN", {
+            timeZone: "Asia/Ho_Chi_Minh",
+          }),
+        }
+      },
+      { returnDocumnet: "after", upsert: true }
+    );
+
+    return result.value;
+  }
+
   async update(id, payload) {
+    console.log(payload)
     const filter = {
       _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
     };
@@ -115,12 +162,12 @@ class OrderService {
       {
         $set: {
           ...payload,
-          time_update: new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh", })
+          date_update: new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh", })
         }
       },
       { returnDocument: "after" }
     );
-    return result;
+    return result.value;
   }
 
   async delete(id) {
@@ -133,8 +180,10 @@ class OrderService {
 
   async deleteAll() {
     const result = await this.Order.deleteMany({});
+
     return result.deletedCount;
   }
+
 }
 
 module.exports = OrderService;

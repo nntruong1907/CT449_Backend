@@ -44,19 +44,24 @@ class UserService {
 
     async find(filter) {
         const cursor = await this.User.find(filter);
+
         return await cursor.toArray();
     }
 
     async findByName(name) {
-        return await this.find({
+        const cursor = await this.find({
             name: { $regex: new RegExp(name), $options: "i" },
         });
+
+        return await cursor.toArray();
     }
 
     async findByPhone(phone) {
-        return await this.find({
+        const cursor = await this.find({
             phone: { $regex: new RegExp(phone), $options: "i" },
         });
+
+        return await cursor.toArray();
     }
 
     async findById(id) {
@@ -82,15 +87,22 @@ class UserService {
         const result = await this.User.findOneAndDelete({
             _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
         });
+
         return result.value;
     }
 
-    async deleteAll() {
-        const result = await this.user.deleteMany({});
-        return result.deletedCount;
+    async logout(id) {
+        const filter = {
+            _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
+        };
+        await this.User.findOneAndUpdate(
+            filter,
+            { $set: { isLogIn: false } },
+            { returnDocument: "after" }
+        );
     }
 
-    // Sign in
+    // Register
     async register(payload) {
         const user = this.extractUserData(payload);
         const salt = bcrypt.genSaltSync(10);
@@ -114,24 +126,33 @@ class UserService {
             },
             { returnDocument: "after", upsert: true }
         );
+
         return result.value;
     }
 
     // Login 
     async login(payload, time) {
+        const filter = {
+            _id: ObjectId.isValid(payload._id) ? new ObjectId(payload._id) : null,
+        };
+        await this.User.findOneAndUpdate(
+            filter,
+            { $set: { isLogIn: true } },
+            { returnDocument: "after" }
+        );
         return jwt.sign({
             iss: 'Nguyen Nhat Truong',
             id: payload._id,
-            admin: payload.account.admin
+            admin: payload.account.admin,
         }, config.JWT_Secret, {  // secretOrPublicKey mã bí mặt (NodejsApiAuthentication)
-            expiresIn: time    // Ngày hết hạn Token 
+            expiresIn: time,    // Ngày hết hạn Token 
         })
     }
 
     async validPassword(validpassword, password) {
         return await bcrypt.compare(
             validpassword,
-            password
+            password,
         );
     }
 
@@ -139,18 +160,18 @@ class UserService {
         return jwt.sign({
             iss: 'Nguyen Nhat Truong',
             id: payload.id,
-            admin: payload.account.admin
+            admin: payload.account.admin,
         }, config.JWT_Secret, {
-            expiresIn: time
+            expiresIn: time,
         })
     }
 
     async findUser(payload) {
-        return await this.User.findOne({ 'account.username': payload.account.username })
+        return await this.User.findOne({ 'account.username': payload.account.username });
     }
 
     async findUsername(payload) {
-        return await this.User.findOne({ 'account.username': payload.username })
+        return await this.User.findOne({ 'account.username': payload.username });
     }
 
 }

@@ -1,4 +1,4 @@
-JWT_Secret=your_secret_key
+JWT_Secret=your_jwt_secret_key
 
 CLOUDINARY_NAME=your_cloudinary_name
 CLOUDINARY_KEY=your_cloudinary_key

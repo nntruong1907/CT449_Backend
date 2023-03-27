@@ -8,6 +8,8 @@ const cookieParser = require('cookie-parser');
 const authRouter = require("./app/routes/auth.route");
 const usersRouter = require("./app/routes/user.route");
 const productsRouter = require("./app/routes/product.route");
+const typesRouter = require("./app/routes/type.route");
+const brandsRouter = require("./app/routes/brand.route");
 const ordersRouter = require("./app/routes/order.route");
 const auth = require("./app/middlewares/auth");
 
@@ -19,7 +21,9 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRouter);
 app.use('/api/users', auth.verifyToken, usersRouter);
-app.use('/api/products', auth.verifyToken, productsRouter);
+app.use('/api/products', productsRouter);
+app.use("/api/types",typesRouter);
+app.use("/api/brands",brandsRouter);
 app.use('/api/orders', auth.verifyToken, ordersRouter);
 
 //handle 404 respone

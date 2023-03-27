@@ -1,9 +1,54 @@
 [
     {
-        "user_id":"",
-        "product_id":["",""],
-        "date":"",
-        "status":"",
-        "payment":""
-    }
+        "_id": {
+          "$oid": "64219cb64334eaa90b2c1f02"
+        },
+        "_productid": "64215d96a9221099f11b0e3a",
+        "_userid": "641e93263c1b061785c9878e",
+        "payment": "COD",
+        "receiver": {
+          "name": "Nguyen Nhat Truong",
+          "phone": "0932456712",
+          "email": "nntruongtest@gmail.com",
+          "address": "Dong Thap"
+        },
+        "date_oder": "20:40:06 27/3/2023",
+        "status": "Chưa xác nhận"
+      },
+
+      {
+        "_id": {
+          "$oid": "6421a87f4334eaa90b2c269e"
+        },
+        "_productid": "64213517a9221099f11af3a5",
+        "_userid": "641e93263c1b061785c9878e",
+        "payment": "COD",
+        "receiver": {
+          "name": "Le Kim Hoan",
+          "phone": "0932456722",
+          "email": "lekimhoantest@gmail.com",
+          "address": "Hau Giang"
+        },
+        "date_oder": "21:30:23 27/3/2023",
+        "status": "Đã xác nhận",
+        "date_update": "21:39:03 27/3/2023"
+      },
+
+      {
+        "_id": {
+          "$oid": "6421ab9b4334eaa90b2c28d5"
+        },
+        "_productid": "642138eea9221099f11af64e",
+        "_userid": "641e93263c1b061785c9878e",
+        "payment": "COD",
+        "receiver": {
+          "name": "Le Nguyen Bang Tam",
+          "phone": "0932456788",
+          "email": "lnbangtamtest@gmail.com",
+          "address": "Soc Trang"
+        },
+        "date_oder": "21:43:39 27/3/2023",
+        "status": "Hủy đơn",
+        "date_update": "21:44:33 27/3/2023"
+      }
 ]

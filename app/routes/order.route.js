@@ -5,12 +5,11 @@ const auth = require("../middlewares/auth");
 const router = express.Router();
 
 router.route("/")
-  .post(orders.create)
   .get(orders.findAll)
+  .post(orders.create)
 
 router.route("/:id")
   .get(orders.findOne)
-  .put(auth.verifyTokenAdmin, orders.update)
-  .delete(orders.delete);
+  .put(auth.verifyOrder, orders.update)
 
 module.exports = router;
