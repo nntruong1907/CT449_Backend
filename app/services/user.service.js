@@ -103,14 +103,14 @@ class UserService {
     }
 
     // Register
-    async register(payload) {
+    async signup(payload) {
         const user = this.extractUserData(payload);
         const salt = bcrypt.genSaltSync(10);
         const passwordHashed = bcrypt.hashSync(user.account.password, salt);
         const avatarDefault = [
-            'https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609679/motorcycle/avt/avt6_jwdkr5.png'
-            , 'https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609679/motorcycle/avt/avt4_m60guj.png'
-            , 'https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609678/motorcycle/avt/avt5_wr6sey.png'
+            'https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609679/motorcycle/avt/avt18_cnhcny.png'
+            , 'https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609679/motorcycle/avt/avt17_etiukn.png'
+            , 'https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609679/motorcycle/avt/avt15_gcmlyg.png'
             , 'https://res.cloudinary.com/dvbzja2gq/image/upload/v1678609678/motorcycle/avt/avt3_nglwui.png'
         ]
         const result = await this.User.findOneAndUpdate(

@@ -108,6 +108,23 @@ class OrderService {
     });
   }
 
+  async findByUserId(userid) {
+    const cursor = await this.Order.aggregate([
+      { $match: { "_userid": userid } },
+      { $addFields: { "_productid": { $toObjectId: "$_productid" } } },
+      {
+        $lookup: {
+          from: "products",
+          localField: "_productid",
+          foreignField: "_id",
+          as: "product"
+        }
+      },
+      { $unwind: "$product" },
+    ]);
+    return await cursor.toArray();
+  }
+
   async findByOrderId(id) {
     const cursor = await this.Order.aggregate([
       { $match: { "_id": ObjectId.isValid(id) ? new ObjectId(id) : null } },
@@ -122,7 +139,6 @@ class OrderService {
       },
       { $unwind: "$product" },
     ]);
-
     return await cursor.toArray();
   }
 
@@ -140,8 +156,8 @@ class OrderService {
       order,
       {
         $set: {
-          status: 'Chưa xác nhận',
-          date_oder: new Date().toLocaleString("vi-VN", {
+          status: 'Unconfirmed',
+          date_order: new Date().toLocaleString("vi-VN", {
             timeZone: "Asia/Ho_Chi_Minh",
           }),
         }

@@ -5,15 +5,24 @@ const uploadCloud = require("../middlewares/uploader.js");
 
 const router = express.Router();
 
+router.route("/signup")
+  .post(users.signup)
+
+router.route("/login")
+  .post(users.login)
+
+router.route("/refresh")
+  .post(users.refreshToken)
+
 router.route("/")
-  .get(auth.verifyAdmin, users.findAll)
+  .get(auth.verifyToken, auth.verifyAdmin, users.findAll)
 
 router.route("/logout")
-  .post(users.logOut)
+  .post(auth.verifyToken, users.logOut)
 
 router.route("/:id")
-  .get(auth.verifyAdmin, users.findOne)
-  .put(auth.verifyAdminAndUser, uploadCloud.single('avatar'), users.update)
-  .delete(auth.verifyAdminAndUser, users.delete)
-  
+  .get(auth.verifyToken, users.findOne)
+  .put(auth.verifyToken, auth.verifyAdminAndUser, uploadCloud.single('avatar'), users.update)
+  .delete(auth.verifyToken, auth.verifyAdminAndUser, users.delete)
+
 module.exports = router;

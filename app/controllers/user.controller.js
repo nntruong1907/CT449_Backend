@@ -84,7 +84,7 @@ exports.delete = async (req, res, next) => {
 };
 
 // Authorization
-exports.register = async (req, res, next) => {
+exports.signup = async (req, res, next) => {
     if (!req.body?.account.username) {
         return next(new ApiError(400, "Username can not be empty."));
     } else if (!req.body?.account.password) {
@@ -96,7 +96,7 @@ exports.register = async (req, res, next) => {
         if (findUser) {
             return next(new ApiError(400, "Username already exists in the database."));
         } else {
-            const document = await userService.register(req.body);
+            const document = await userService.signup(req.body);
             return res.send(document);
         }
     } catch (error) {
@@ -124,8 +124,10 @@ exports.login = async (req, res, next) => {
                 sameSite: "strict",
             });
             return res.send({
-                userid: user._id,
+                // userid: user._id,
                 AccessToken: accessToken,
+                user: user,
+                // admin: user.account.admin
             });
         }
     } catch (error) {

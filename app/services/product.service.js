@@ -22,20 +22,11 @@ class ProductService {
         height: (payload.height) ? parseInt(payload.height) : payload.height,
         ground_clearance: (payload.ground_clearance) ? parseInt(payload.ground_clearance) : payload.ground_clearance,
         fuel_capacity: (payload.fuel_capacity) ? parseInt(payload.fuel_capacity) : payload.fuel_capacity,
-        // weight: payload.weight,
-        // length: payload.length,
-        // width: payload.width,
-        // height: payload.height,
-        // ground_clearance: payload.ground_clearance,
-        // fuel_capacity: payload.fuel_capacity,
         color: payload.color,
         year: (payload.year) ? parseInt(payload.year) : payload.year,
-        // year: payload.year,
         engine: payload.engine,
         power: (payload.power) ? parseInt(payload.power) : payload.power,
         speed: (payload.speed) ? parseInt(payload.speed) : payload.speed,
-        // power: payload.power,
-        // speed: payload.speed,
         compression_ratio: payload.compression_ratio,
       },
     };
@@ -76,12 +67,6 @@ class ProductService {
     return result.value;
   }
 
-  // async find(filter) {
-  //   const cursor = await this.Product.find(filter);
-
-  //   return await cursor.toArray();
-  // }
-
   async findAll() {
     const cursor = await this.Product.aggregate([
       { $addFields: { "_typeid": { $toObjectId: "$_typeid" } } },
@@ -107,15 +92,6 @@ class ProductService {
     ]);
     return await cursor.toArray();
   }
-
-  // async findByName(name) {
-  //   const cursor = await this.Product.find({
-  //     name: { $regex: new RegExp(name), $options: "i" },
-
-  //   });
-
-  //   return await cursor.toArray();
-  // }
 
   async findByName(name) {
     const cursor = await this.Product.aggregate([
@@ -190,14 +166,6 @@ class ProductService {
     return await cursor.toArray();
   }
 
-  // async findByTypeId(typeid) {
-  //   const cursor = await this.Product.find({
-  //     _typeid: typeid ? typeid.toString() : null,
-  //   });
-
-  //   return await cursor.toArray();
-  // }
-
   async findByTypeId(typeid) {
     const cursor = await this.Product.aggregate([
       { $match: { _typeid: typeid } },
@@ -225,14 +193,6 @@ class ProductService {
 
     return await cursor.toArray();
   }
-
-  // async findByBrandId(brandid) {
-  //   const cursor = await this.Product.find({
-  //     _brandid: brandid ? brandid.toString() : null,
-  //   });
-
-  //   return await cursor.toArray();
-  // }
 
   async findByBrandId(brandid) {
     const cursor = await this.Product.aggregate([

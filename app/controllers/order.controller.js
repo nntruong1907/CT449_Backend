@@ -2,6 +2,7 @@ const MongoDB = require("../utils/mongodb.util");
 const ApiError = require("../api-error");
 const OrderService = require("../services/order.service");
 const ProductService = require("../services/product.service");
+const UserService = require("../services/user.service");
 
 exports.create = async (req, res, next) => {
   try {
@@ -38,6 +39,22 @@ exports.findOne = async (req, res, next) => {
     );
   }
 };
+
+exports.findByUserId = async (req, res, next) => {
+  try {
+    const orderService = new OrderService(MongoDB.client);
+    const document = await orderService.findByUserId(req.params.id);
+    if (!document) {
+      return next(new ApiError(404, "Order not found."));
+    }
+    return res.send(document);
+  } catch (error) {
+    return next(
+      new ApiError(500, `Error retrieving order with id=${req.params.id}`)
+    );
+  }
+};
+
 
 exports.findAll = async (req, res, next) => {
   let documents = [];
@@ -78,7 +95,7 @@ exports.update = async (req, res, next) => {
 
     const productService = new ProductService(MongoDB.client);
     const product = await productService.findById(document._productid);
-    if (document.status == "Hủy đơn") {
+    if (document.status == "Unconfirmed") {
       let quantity = parseInt(product.quantity) + 1;
       await productService.updateQuantity(product._id, { quantity: quantity });
     }

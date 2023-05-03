@@ -10,6 +10,9 @@ router.route("/")
 
 router.route("/:id")
   .get(orders.findOne)
-  .put(auth.verifyOrder, orders.update)
+  .put(orders.update)
+
+router.route("/findByUserId/:id")
+  .get(orders.findByUserId);
 
 module.exports = router;

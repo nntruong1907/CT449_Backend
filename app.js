@@ -5,7 +5,6 @@ const cors = require("cors");
 const ApiError = require("./app/api-error");
 const cookieParser = require('cookie-parser');
 
-const authRouter = require("./app/routes/auth.route");
 const usersRouter = require("./app/routes/user.route");
 const productsRouter = require("./app/routes/product.route");
 const typesRouter = require("./app/routes/type.route");
@@ -19,11 +18,10 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api/auth", authRouter);
-app.use('/api/users', auth.verifyToken, usersRouter);
+app.use('/api/users', usersRouter);
 app.use('/api/products', productsRouter);
-app.use("/api/types",typesRouter);
-app.use("/api/brands",brandsRouter);
+app.use("/api/types", typesRouter);
+app.use("/api/brands", brandsRouter);
 app.use('/api/orders', auth.verifyToken, ordersRouter);
 
 //handle 404 respone
