@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.route("/")
   .get(orders.findAll)
-  .post(orders.create)
+  .post(auth.verifyToken, orders.create)
 
 router.route("/:id")
   .get(orders.findOne)

@@ -19,6 +19,7 @@ exports.create = async (req, res, next) => {
     const document = await orderService.create({ ...req.body, _userid: req.user.id });
     return res.send(document);
   } catch (error) {
+    console.log(error)
     return next(
       new ApiError(500, "An error occurred while creating the order.")
     );

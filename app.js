@@ -22,7 +22,7 @@ app.use('/api/users', usersRouter);
 app.use('/api/products', productsRouter);
 app.use("/api/types", typesRouter);
 app.use("/api/brands", brandsRouter);
-app.use('/api/orders', auth.verifyToken, ordersRouter);
+app.use('/api/orders', ordersRouter);
 
 //handle 404 respone
 app.use((req, res, next) => {

@@ -16,7 +16,6 @@ class OrderService {
         address: payload.receiver.address,
       },
       payment: payload.payment,
-
       status: payload.status
     };
 
