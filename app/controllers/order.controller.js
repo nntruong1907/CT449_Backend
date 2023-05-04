@@ -116,6 +116,12 @@ exports.delete = async (req, res, next) => {
     if (!document) {
       return next(new ApiError(404, "Order not found"));
     }
+    const productService = new ProductService(MongoDB.client);
+    const product = await productService.findById(document._productid);
+    if (document.status == "Unconfirmed") {
+      let quantity = parseInt(product.quantity) + 1;
+      await productService.updateQuantity(product._id, { quantity: quantity });
+    }
     return res.send({ message: "Order was deleted successfully" });
   } catch (error) {
     return next(
