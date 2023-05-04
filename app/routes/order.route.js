@@ -10,7 +10,8 @@ router.route("/")
 
 router.route("/:id")
   .get(orders.findOne)
-  .put(orders.update)
+  .put(auth.verifyToken, orders.update)
+  .delete(auth.verifyToken, auth.verifyAdmin, orders.delete);
 
 router.route("/findByUserId/:id")
   .get(orders.findByUserId);

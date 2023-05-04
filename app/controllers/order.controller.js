@@ -108,3 +108,18 @@ exports.update = async (req, res, next) => {
     );
   }
 };
+
+exports.delete = async (req, res, next) => {
+  try {
+    const orderService = new OrderService(MongoDB.client);
+    const document = await orderService.delete(req.params.id);
+    if (!document) {
+      return next(new ApiError(404, "Order not found"));
+    }
+    return res.send({ message: "Order was deleted successfully" });
+  } catch (error) {
+    return next(
+      new ApiError(500, `Could not delete order with id=${req.params.id}`)
+    );
+  }
+};
